@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Ajout des Réservations</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header"> Ajout des Réservations </div>
+<div class="card-body">
+<form th:action="@{saveBooking}" method="post">
+<div class="form-group">
+<label class="control-label">Nom Client :</label>
+<input type="text" name="nomClient" class="form-control"
+th:value="${booking.nomClient}" />
+<span th:errors= ${booking.nomClient} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Nombre personne :</label>
+<input type="text" name="nombre" class="form-control"
+th:value="${booking.nombre}" />
+<span th:errors=${booking.nombre} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">date :</label>
+<input type="date" name="dateReserv" class="form-control"
+th:value="${booking.dateReserv}"/>
+<span th:errors=${booking.dateReserv} class="text-danger"> </span>
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Ajouter</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
